@@ -1,0 +1,51 @@
+Churn risk model - how the score works
+
+Short version
+Clean the Telco customer table, one-hot encode categoricals, scale features,
+train logistic regression, then score every customer with a churn probability.
+Focus list = high probability + high monthly value, plus the top 20% risk band.
+
+Why logistic regression
+I wanted a model a stakeholder can interrogate in an interview: each feature
+has a signed coefficient (raises vs lowers risk). Tree models can beat raw
+accuracy, but coefficients are easier to defend when the ask is "who should
+we call and why."
+
+Train / test
+80% train / 20% test, stratified on Churn_Flag, random_state=42.
+Metrics below are always on the held-out test set.
+
+What I report (not accuracy alone)
+Accuracy on imbalanced churn data can look fine while missing many leavers.
+I report:
+- Precision - of customers flagged as churn, how many actually churned
+- Recall - of actual churners, how many we caught
+- F1 - balance of precision and recall
+- ROC-AUC - ranking quality across thresholds
+
+Current build (test set)
+- Accuracy  ~80.7%
+- Precision ~65.8%
+- Recall    ~56.7%
+- F1        ~60.9%
+- ROC-AUC   ~0.842
+
+Confusion matrix (test): TN 925, FP 110, FN 162, TP 212
+(see 03_outputs/confusion_matrix.csv).
+
+Feature prep choices
+- TotalCharges blanks -> 0 (new customers with no billed total yet)
+- Drop customerID and the text Churn label from X
+- Drop Estimated_Annual_Revenue from X (perfect multiple of MonthlyCharges)
+- get_dummies(drop_first=True) for categoricals
+- StandardScaler fit on train only, applied to test and full roster
+
+Threshold
+Predicted_Churn uses 0.50 probability. For a live retention program I would
+tune the threshold to the call-center capacity and cost of a false positive
+(wasted offer) vs false negative (lost customer).
+
+What this is not
+Not a production scoring service, not causal proof that removing Fiber or
+adding Tech Support "causes" retention. It is a screening model for a
+portfolio retention workflow.

@@ -1,8 +1,41 @@
-# Ignore Python's virtual environment
+# Python
+__pycache__/
+*.pyc
 .venv/
+venv/
+.ipynb_checkpoints/
 
-# Ignore data files
-*.csv
+# Excel / Office lock files
+~$*
+*.tmp
 
-# Ignore Power BI project file
-*.pbix
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local SQLite DB created by scripts/run_sql_demo.py
+sql/*.db
+sql/customer_churn.db
+
+# Personal / agent scratch — not for GitHub
+_personal/
+_nb_extract.txt
+_pbix_check/
+_pbix_inspect/
+_pbix_preview/
+03_outputs/_*.txt
+docs/live-dashboard/_capture_*.html
+
+# One-off local helper scripts (not part of the portfolio deliverable)
+scripts/review_pbix.py
+scripts/review_pbix_final.py
+scripts/build_pbix_via_pbi_desktop.py
+scripts/finish_pbi_save.py
+
+# Local editor / agent config (not needed on GitHub)
+.cursor/
+.code-workspace
+.vscode/
+.idea/
+*.code-workspace

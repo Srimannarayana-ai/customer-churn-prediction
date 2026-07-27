@@ -1,0 +1,31 @@
+Customer Churn Retention Scorecard - Scope
+
+Question
+Which customers are most likely to leave, which of those are worth saving
+first, and what product / contract patterns drive churn?
+
+Grain
+One row = one customer (customerID)
+
+Source
+IBM Telco Customer Churn sample (public). Used for portfolio / interview
+demonstration of a retention analytics workflow — not a live production
+telecom database.
+
+KPIs
+- Churn rate (actual Yes/No)
+- MonthlyCharges / Estimated annual revenue at risk
+- Churn_Prob / Churn_Risk_Score (0-100) from logistic regression
+- Segment churn rates: Contract, TechSupport, InternetService, PaymentMethod,
+  Tenure_Band
+
+Dashboard filters (suggested for Power BI)
+Contract, TechSupport, InternetService, Tenure_Band, Focus_Flag, PaymentMethod
+
+Model
+Logistic regression on an 80/20 stratified train/test split (random_state=42).
+Primary decision metrics: precision, recall, F1, ROC-AUC (not accuracy alone).
+
+Focus list
+1) High risk / high value — Churn_Prob >= 0.50 and MonthlyCharges >= median
+2) Elevated risk (top 20%) — Churn_Prob in the top fifth of all customers

@@ -1,0 +1,39 @@
+Data dictionary - fields used in the customer table
+
+Join / grain key
+customerID - unique customer identifier
+
+Demographics / account
+gender
+SeniorCitizen - 0/1 in source; SeniorCitizen_Label is Yes/No for dashboards
+Partner, Dependents
+tenure - months with the company
+Tenure_Band - 0-12, 13-24, 25-48, 49-72 (bucketed for rollups)
+
+Services
+PhoneService, MultipleLines
+InternetService - DSL / Fiber optic / No
+OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport
+StreamingTV, StreamingMovies
+
+Billing
+Contract - Month-to-month / One year / Two year
+PaperlessBilling
+PaymentMethod
+MonthlyCharges
+TotalCharges - blank rows in the raw file coerced to 0 (new accounts)
+Estimated_Annual_Revenue - MonthlyCharges * 12 (dashboard / focus only;
+  not used as a model feature because it duplicates MonthlyCharges)
+
+Target and scores
+Churn - Yes / No (source label)
+Churn_Flag - 1 if Yes else 0
+Churn_Prob - model predicted probability of churn (0-1)
+Churn_Risk_Score - Churn_Prob * 100
+Predicted_Churn - 1 if Churn_Prob >= 0.50
+Focus_Flag - High risk / high value | Elevated risk (top 20%) | Ok / monitor
+Focus_Priority - 1 / 2 / 3 matching Focus_Flag order
+Model_Split - train or test (which fold the row landed in for evaluation)
+
+Source file (01_raw)
+WA_Fn-UseC_-Telco-Customer-Churn.csv

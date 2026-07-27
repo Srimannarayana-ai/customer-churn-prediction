@@ -1,0 +1,49 @@
+Retention action brief
+Customer Churn Retention Scorecard
+=================================
+
+If I were supporting a retention / CRM team with this scorecard, I would not
+treat Churn_Prob as a final "fire this customer" score. I would use it to
+decide who to contact first and which offer levers to test. Based on the
+current build, here are five concrete next steps.
+
+1) Start with the 1,267 "high risk / high value" customers
+   These have predicted churn probability at or above 50% and monthly charges
+   at or above the median (~$70). About two-thirds in this bucket have already
+   churned in the historical label — the rest are the live save opportunities.
+   Estimated annual revenue represented on the full focus list is about $1.49M
+   (MonthlyCharges * 12 summed). I would export this list to the outbound
+   team with Contract, TechSupport, and InternetService attached.
+
+2) Lead with Month-to-month + no Tech Support messaging
+   Month-to-month contracts churn at about 42.7% vs ~11% (one year) and ~3%
+   (two year). Customers without Tech Support churn at about 41.6% vs ~15%
+   with support. That is the clearest product story in the data: convert
+   flexible contracts where possible, and bundle support for fiber / heavy
+   streaming accounts on the focus list.
+
+3) Treat "elevated risk (top 20%)" as a nurture watch list
+   248 customers sit in the top risk quintile without clearing the high-value
+   bar. Average monthly spend is lower (~$54). Use cheaper digital nudges
+   (email / in-app) before expensive agent time.
+
+4) Prioritize early-tenure saves
+   Tenure 0-12 months shows ~47% churn vs ~9.5% in the 49-72 band. A 30-day
+   onboarding checklist for new month-to-month fiber customers will usually
+   beat a late-stage win-back campaign.
+
+5) Ask for one operational owner per action type
+   - CRM / outbound owns the high risk / high value call list
+   - Product owns Tech Support attach and contract conversion experiments
+   - Finance / analytics owns weekly refresh of Churn_Prob and focus flags
+   The scorecard's job is prioritization. The action plan needs named owners
+   and a 30/60/90-day check on the same customerIDs.
+
+What I would not do
+- Blast every predicted churner with the same discount (destroys margin)
+- Report accuracy alone in a stakeholder deck (show precision / recall / AUC)
+- Pretend coefficients are causal without an experiment
+
+Numbers above come from the cleaned customer table and model outputs in this
+project (focus list = 1,515 customers: 1,267 high risk / high value,
+248 elevated risk).

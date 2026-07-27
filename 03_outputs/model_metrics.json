@@ -1,0 +1,15 @@
+{
+  "n_customers": 7043,
+  "n_train": 5634,
+  "n_test": 1409,
+  "churn_rate_overall_pct": 26.5,
+  "accuracy": 0.807,
+  "precision": 0.6584,
+  "recall": 0.5668,
+  "f1": 0.6092,
+  "roc_auc": 0.8418,
+  "true_negatives": 925,
+  "false_positives": 110,
+  "false_negatives": 162,
+  "true_positives": 212
+}

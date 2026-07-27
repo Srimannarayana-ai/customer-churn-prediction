@@ -1,0 +1,33 @@
+Power BI setup — Customer Churn Retention Scorecard
+
+Report file
+-----------
+03_outputs/Customer_Churn_Retention_Scorecard.pbix
+
+Pages
+- Scorecard — slicers, KPI cards, scatter, contract churn bars, customer table
+- Focus list — high risk / high value + elevated risk only (excludes Ok / monitor)
+
+Data source
+-----------
+03_outputs/PowerBI/Churn_Scorecard_Data.xlsx
+
+Sheets: customers, focus_list, segment_rates, kpis, top_drivers, confusion_matrix
+
+Refresh after rebuilding data
+-----------------------------
+1. python scripts/build_churn_scorecard.py
+2. Keep Churn_Scorecard_Data.xlsx in 03_outputs/PowerBI/
+3. Open the .pbix in Power BI Desktop
+4. Home → Refresh
+5. File → Save
+
+Screenshots in the README
+-------------------------
+docs/images/powerbi_scorecard.png
+docs/images/live_dashboard_scorecard.png
+
+Share
+-----
+1. 03_outputs/Customer_Churn_Retention_Scorecard.pbix
+2. 03_outputs/PowerBI/Churn_Scorecard_Data.xlsx

@@ -1,0 +1,25 @@
+Focus list - what it means
+
+The Focus list keeps customers that are not "Ok / monitor".
+
+Expected counts (current build):
+- 1,515 customers total on the focus list
+- 1,267 High risk / high value
+-   248 Elevated risk (top 20%) only
+
+Rules
+1) High risk / high value
+   Churn_Prob >= 0.50 AND MonthlyCharges >= overall median (~70.35)
+
+2) Elevated risk (top 20%)
+   Churn_Prob is in the highest fifth of all customers
+   (and not already tagged as high risk / high value)
+
+Why these cutoffs
+0.50 is the default classification threshold — easy to explain.
+Median monthly spend separates "save first" revenue from lower-ARPU noise.
+Top 20% mirrors the Medicare scorecard's bottom-quintile screening idea:
+pull a manageable review queue without pretending the cutoff is sacred.
+
+The full customers sheet still has every account, including "Ok / monitor".
+That is normal. The Focus list page filters those out.
