@@ -1,7 +1,11 @@
 Power BI setup — Customer Churn Retention Scorecard
 
-Report file
------------
+Live report (browser)
+---------------------
+https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi
+
+Desktop file
+------------
 03_outputs/Customer_Churn_Retention_Scorecard.pbix
 
 Pages
@@ -21,13 +25,13 @@ Refresh after rebuilding data
 3. Open the .pbix in Power BI Desktop
 4. Home → Refresh
 5. File → Save
+6. Republish to Power BI Service if the live link should show new numbers
 
-Screenshots in the README
--------------------------
+Screenshot in the README
+------------------------
 docs/images/powerbi_scorecard.png
-docs/images/live_dashboard_scorecard.png
 
 Share
 -----
-1. 03_outputs/Customer_Churn_Retention_Scorecard.pbix
-2. 03_outputs/PowerBI/Churn_Scorecard_Data.xlsx
+1. Live Power BI Service link (above)
+2. Or: .pbix + Churn_Scorecard_Data.xlsx together

@@ -4,13 +4,19 @@ Customer-level look at who is likely to leave, which of those accounts are worth
 
 Data comes from the public IBM Telco Customer Churn sample.
 
-## Power BI report
-
-**File:** [`03_outputs/Customer_Churn_Retention_Scorecard.pbix`](03_outputs/Customer_Churn_Retention_Scorecard.pbix)
-
-**Desktop data for Power BI:** [`03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`](03_outputs/PowerBI/Churn_Scorecard_Data.xlsx)
+## Dashboard
 
 ![Power BI Scorecard](docs/images/powerbi_scorecard.png)
+
+**Live Power BI report:** [Open in Power BI Service](https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi)
+
+Desktop file:
+
+`03_outputs/Customer_Churn_Retention_Scorecard.pbix`
+
+Data for refresh:
+
+`03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
 
 Pages:
 - **Scorecard** – slicers (contract, tech support, internet, tenure band, focus flag), KPI cards, risk vs spend scatter, churn-by-contract bars, customer table
@@ -22,18 +28,10 @@ Focus list breaks down as:
 - 1,267 high risk / high value (Churn_Prob ≥ 0.50 and MonthlyCharges ≥ median)
 - 248 elevated risk (top 20% of Churn_Prob)
 
-## Live browser dashboard
-
-No Power BI install needed. Open [`docs/live-dashboard/index.html`](docs/live-dashboard/index.html) locally, or enable GitHub Pages on this repo.
-
-![Live browser scorecard](docs/images/live_dashboard_scorecard.png)
-
-Rebuild anytime with: `python scripts/build_live_dashboard.py`
-
 ## Folder layout
 
 ```
-customer-churn-prediction/
+customer-churn-retention-scorecard/
 ├── 01_raw/                 Telco CSV + download notes
 ├── 02_clean/               cleaned / scored customer table
 ├── 03_outputs/
@@ -42,7 +40,6 @@ customer-churn-prediction/
 │   └── model_metrics.json
 ├── docs/
 │   ├── images/             dashboard screenshots
-│   ├── live-dashboard/     browser scorecard
 │   ├── powerbi_setup.txt
 │   ├── scope.txt
 │   ├── data_dictionary.txt
@@ -52,7 +49,6 @@ customer-churn-prediction/
 ├── sql/                    SQL analysis + how to run it
 ├── scripts/
 │   ├── build_churn_scorecard.py
-│   ├── build_live_dashboard.py
 │   └── run_sql_demo.py
 ├── requirements.txt
 └── README.md
@@ -110,20 +106,18 @@ python scripts/run_sql_demo.py
 ```bash
 pip install -r requirements.txt
 python scripts/build_churn_scorecard.py
-python scripts/build_live_dashboard.py
 ```
 
-Then open `03_outputs/Customer_Churn_Retention_Scorecard.pbix` in Power BI Desktop and hit **Home → Refresh**.
+Then open the `.pbix` and hit **Refresh**, or republish to Power BI Service.
 
 Keep `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx` where it is — that path is what the Power BI file uses.
 
 ## Sharing
 
-Send both files together:
-1. `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
-2. `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
-
-Or open `docs/live-dashboard/index.html` for a quick browser view.
+- Live link: [Power BI Service report](https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi)
+- Or send both desktop files:
+  1. `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
+  2. `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
 
 ## Notes worth knowing
 
@@ -132,6 +126,7 @@ Or open `docs/live-dashboard/index.html` for a quick browser view.
 - Early tenure (0–12 months) is the riskiest band (~47% churn).
 - `Estimated_Annual_Revenue` is for dashboards only — it is not a model feature (it is MonthlyCharges × 12).
 - This is a project score for analysis / portfolio use, not a live telecom production model.
+- The live Power BI link opens in the browser; viewers need Power BI access if the report is not set to public / organizational share.
 
 ## Docs
 
@@ -145,4 +140,3 @@ Or open `docs/live-dashboard/index.html` for a quick browser view.
 | `docs/powerbi_setup.txt` | Power BI report + refresh notes |
 | `sql/` | SQL analysis + how to run it |
 | `docs/images/` | Dashboard screenshots |
-| `docs/live-dashboard/` | Browser dashboard |
