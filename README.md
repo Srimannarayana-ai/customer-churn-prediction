@@ -8,15 +8,13 @@ Data comes from the public IBM Telco Customer Churn sample.
 
 ![Power BI Scorecard](docs/images/powerbi_scorecard.png)
 
-**Live Power BI report:** [Open in Power BI Service](https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi)
-
-Desktop file:
-
+**Power BI Desktop report:**  
 `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
 
-Data for refresh:
-
+**Data for refresh:**  
 `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
+
+Open the `.pbix` in Power BI Desktop (with the Excel file beside it) to explore the interactive report. A public browser link is not available — Publish to web is disabled on the university Power BI tenant.
 
 Pages:
 - **Scorecard** – slicers (contract, tech support, internet, tenure band, focus flag), KPI cards, risk vs spend scatter, churn-by-contract bars, customer table
@@ -108,16 +106,15 @@ pip install -r requirements.txt
 python scripts/build_churn_scorecard.py
 ```
 
-Then open the `.pbix` and hit **Refresh**, or republish to Power BI Service.
+Then open the `.pbix` in Power BI Desktop and hit **Home → Refresh**.
 
 Keep `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx` where it is — that path is what the Power BI file uses.
 
 ## Sharing
 
-- Live link: [Power BI Service report](https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi)
-- Or send both desktop files:
-  1. `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
-  2. `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
+Send both files together:
+1. `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
+2. `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
 
 ## Notes worth knowing
 
@@ -126,7 +123,6 @@ Keep `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx` where it is — that path is
 - Early tenure (0–12 months) is the riskiest band (~47% churn).
 - `Estimated_Annual_Revenue` is for dashboards only — it is not a model feature (it is MonthlyCharges × 12).
 - This is a project score for analysis / portfolio use, not a live telecom production model.
-- The live Power BI link opens in the browser; viewers need Power BI access if the report is not set to public / organizational share.
 
 ## Docs
 
