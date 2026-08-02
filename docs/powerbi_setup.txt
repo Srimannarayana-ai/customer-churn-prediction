@@ -1,5 +1,13 @@
 Power BI setup — Customer Churn Retention Scorecard
 
+Live report (browser)
+---------------------
+Power BI Service (may require sign-in):
+https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi
+
+Backup browser view (no Power BI login):
+https://srimannarayana-ai.github.io/customer-churn-retention-scorecard/live-dashboard/
+
 Desktop file
 ------------
 03_outputs/Customer_Churn_Retention_Scorecard.pbix
@@ -17,22 +25,18 @@ Sheets: customers, focus_list, segment_rates, kpis, top_drivers, confusion_matri
 Refresh after rebuilding data
 -----------------------------
 1. python scripts/build_churn_scorecard.py
-2. Keep Churn_Scorecard_Data.xlsx in 03_outputs/PowerBI/
-3. Open the .pbix in Power BI Desktop
-4. Home → Refresh
-5. File → Save
+2. python scripts/build_live_dashboard.py
+3. Keep Churn_Scorecard_Data.xlsx in 03_outputs/PowerBI/
+4. Open the .pbix in Power BI Desktop
+5. Home → Refresh
+6. File → Save
 
-Screenshot in the README
-------------------------
+Screenshots in the README
+-------------------------
 docs/images/powerbi_scorecard.png
+docs/images/live_dashboard_scorecard.png
 
 Share
 -----
-1. 03_outputs/Customer_Churn_Retention_Scorecard.pbix
-2. 03_outputs/PowerBI/Churn_Scorecard_Data.xlsx
-
-Note
-----
-A public Power BI Service / Publish-to-web link is not used here. The university
-tenant blocks public embed codes, so the portfolio deliverable is the .pbix
-plus screenshot.
+1. Power BI Service link and/or GitHub Pages live-dashboard link
+2. Or: .pbix + Churn_Scorecard_Data.xlsx together

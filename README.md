@@ -8,13 +8,17 @@ Data comes from the public IBM Telco Customer Churn sample.
 
 ![Power BI Scorecard](docs/images/powerbi_scorecard.png)
 
-**Power BI Desktop report:**  
+**Live Power BI report:** [Open in Power BI Service](https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi)
+
+Backup browser view (no Power BI login): [GitHub Pages dashboard](https://srimannarayana-ai.github.io/customer-churn-retention-scorecard/live-dashboard/)
+
+Desktop file:
+
 `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
 
-**Data for refresh:**  
-`03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
+Data for refresh:
 
-Open the `.pbix` in Power BI Desktop (with the Excel file beside it) to explore the interactive report. A public browser link is not available — Publish to web is disabled on the university Power BI tenant.
+`03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
 
 Pages:
 - **Scorecard** – slicers (contract, tech support, internet, tenure band, focus flag), KPI cards, risk vs spend scatter, churn-by-contract bars, customer table
@@ -38,6 +42,7 @@ customer-churn-retention-scorecard/
 │   └── model_metrics.json
 ├── docs/
 │   ├── images/             dashboard screenshots
+│   ├── live-dashboard/     GitHub Pages interactive view
 │   ├── powerbi_setup.txt
 │   ├── scope.txt
 │   ├── data_dictionary.txt
@@ -47,6 +52,7 @@ customer-churn-retention-scorecard/
 ├── sql/                    SQL analysis + how to run it
 ├── scripts/
 │   ├── build_churn_scorecard.py
+│   ├── build_live_dashboard.py
 │   └── run_sql_demo.py
 ├── requirements.txt
 └── README.md
@@ -104,6 +110,7 @@ python scripts/run_sql_demo.py
 ```bash
 pip install -r requirements.txt
 python scripts/build_churn_scorecard.py
+python scripts/build_live_dashboard.py
 ```
 
 Then open the `.pbix` in Power BI Desktop and hit **Home → Refresh**.
@@ -112,9 +119,11 @@ Keep `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx` where it is — that path is
 
 ## Sharing
 
-Send both files together:
-1. `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
-2. `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
+- Live Power BI: [Power BI Service report](https://app.powerbi.com/groups/me/reports/f4255352-c347-4ab9-a4fe-4acee8713ace/6be96214268e9bb28511?experience=power-bi)
+- No-login browser view: [GitHub Pages dashboard](https://srimannarayana-ai.github.io/customer-churn-retention-scorecard/live-dashboard/)
+- Or send both desktop files:
+  1. `03_outputs/Customer_Churn_Retention_Scorecard.pbix`
+  2. `03_outputs/PowerBI/Churn_Scorecard_Data.xlsx`
 
 ## Notes worth knowing
 
@@ -136,3 +145,4 @@ Send both files together:
 | `docs/powerbi_setup.txt` | Power BI report + refresh notes |
 | `sql/` | SQL analysis + how to run it |
 | `docs/images/` | Dashboard screenshots |
+| `docs/live-dashboard/` | Browser dashboard (GitHub Pages) |
